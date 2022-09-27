@@ -68,10 +68,16 @@
                 ry="2" />
         </svg>
       </div>
-      <img class="user-profile"
-           src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png"
-           alt="">
-      <div class="user-name">Suhayel Nasim</div>
+      @if (Auth::check())
+        <img class="user-profile"
+             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png"
+             alt="">
+        <div class="user-name">{{Auth::user()->name}}</div>
+      @else
+        <div class="user-name"><a>Login</a> | <a>Register</a></div>
+      @endif
+
+
     </div>
   </div>
   <div class="wrapper">

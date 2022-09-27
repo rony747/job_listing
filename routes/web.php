@@ -15,11 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('frontend.home');
+    return view('welcome');
 });
 
-Route::group(['prefix'=>'jobs'], function(){
-Route::get('/', [JobController::class, 'index'])->name('jobs');
-Route::get('/view/{id}', [JobController::class, 'view'])->name('view.jobs');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
+require __DIR__.'/auth.php';
+
+Route::group(['prefix'=>'jobs'],function(){
+  Route::get('/', [JobController::class, 'index'])->name('jobs');
+  Route::get('/view/{id}', [JobController::class, 'view'])->name('view.jobs');
 });
