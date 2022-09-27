@@ -20,5 +20,6 @@ Route::get('/', function () {
 
 Route::group(['prefix'=>'jobs'], function(){
 Route::get('/', [JobController::class, 'index'])->name('jobs');
+Route::get('/view/{id}', [JobController::class, 'view'])->name('view.jobs');
 
 });

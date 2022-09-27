@@ -14,7 +14,9 @@ return new class extends Migration {
   {
     Schema ::create('jobs', function (Blueprint $table) {
       $table -> id();
+      $table -> unsignedBigInteger('user_id');
       $table -> string('job_title');
+      $table -> string('job_slug');
       $table -> string('job_vacancy') -> nullable();
       $table -> string('job_employment_status') -> nullable();
       $table -> string('job_experience') -> nullable();
@@ -28,6 +30,9 @@ return new class extends Migration {
       $table -> text('job_educational_requirements') -> nullable();
       $table -> text('job_additional_requirements') -> nullable();
       $table -> text('job_other_benefits') -> nullable();
+      $table -> boolean('is_featured') -> default(false);
+      $table -> boolean('is_active') -> default(true);
+      $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
       $table -> timestamps();
     });
   }
