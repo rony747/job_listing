@@ -2,7 +2,7 @@
 @section('title', 'Home Page')
 @section('content')
 
-  @include('frontend.templates.parts.search')
+
   <div class="row mt-4">
     <div class="col-md-3">
       <div class="alert">

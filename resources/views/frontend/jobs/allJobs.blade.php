@@ -37,7 +37,7 @@
         @endforeach
       </div><!-- job-cards -->
       <div class="pagination mt-4">
-        {{$allJobs->links('pagination::bootstrap-5')}}
+        {{$allJobs->appends($_GET)->links('pagination::bootstrap-5')}}
       </div>
 
     </div>

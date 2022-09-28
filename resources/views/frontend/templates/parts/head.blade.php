@@ -72,9 +72,19 @@
         <img class="user-profile"
              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png"
              alt="">
-        <div class="user-name">{{Auth::user()->name}}</div>
+        <div class="dropdown">
+          <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            My account
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li class="px-3 py-2">{{Auth::user()->name}}</li>
+            <li><a class="dropdown-item" href="{{route('profile')}}">Edit Profile</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+
       @else
-        <div class="user-name"><a>Login</a> | <a>Register</a></div>
+        <div class="user-name"><a href="{{route('login')}}">Login</a> | <a href="{{route('register')}}">Register</a></div>
       @endif
 
 

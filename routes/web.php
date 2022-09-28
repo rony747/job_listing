@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\frontend\JobController;
+use App\Http\Controllers\frontend\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.home');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/frontend.home', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -28,3 +29,9 @@ Route::group(['prefix'=>'jobs'],function(){
   Route::get('/', [JobController::class, 'index'])->name('jobs');
   Route::get('/view/{id}', [JobController::class, 'view'])->name('view.jobs');
 });
+Route::group(['prefix'=>'profile'],function(){
+  Route::get('/view/', [ProfileController::class, 'view'])->name('profile');
+//  Route::get('/view/{id}', [JobController::class, 'view'])->name('view.jobs');
+});
+
+Route::get('job-filter',[JobController::class,'filter'])->name('job.filter');
