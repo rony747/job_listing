@@ -141,7 +141,10 @@ body {
 .header-menu a.active {
 	color: var(--active-color);
 }
-
+.profile-menu *{
+	font-size: 14px;
+	font-weight: 500;
+}
 .user-settings {
 	display: flex;
 	align-items: center;
@@ -484,6 +487,10 @@ body {
 	font-weight: 600;
 	margin-top: 16px;
 	font-size: 14px;
+}
+.job-card-title a{
+	text-decoration: none;
+	color: var(--body-color);
 }
 .job-card-subtitle {
 	color: var(--subtitle-color);
@@ -1017,7 +1024,11 @@ body {
 .account-settings .user-profile h5.user-name {
 	margin: 0 0 0.5rem 0;
 }
-.account-settings .user-profile h6.user-email {
+.user-name a{
+	text-decoration: none;
+	color: var(--body-color);
+}
+ .account-settings .user-profile h6.user-email {
 	margin: 0;
 	font-size: 0.8rem;
 	font-weight: 400;

@@ -46,7 +46,7 @@
                 r="3"/>
       </svg>
       <select name="job_location" id="job_location" class="form-control">
-        <option value="" disabled selected> Select Job type</option>
+        <option value="" disabled selected> Select Location</option>
         @foreach($joblocation as $job)
           <option value="{{$job}}" {{ (request()->get('job_location') == $job) ? 'selected' : ''}}>{{$job}}</option>
         @endforeach

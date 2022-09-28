@@ -69,14 +69,19 @@
         </svg>
       </div>
       @if (Auth::check())
-        <img class="user-profile"
-             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png"
-             alt="">
-        <div class="dropdown">
+
+
+        @if(Auth::user()->profile_photo)
+          <img class="user-profile" src="/upload/user_profile_photo/{{Auth::user()->profile_photo}}" id="profileImg" alt="Maxwell Admin">
+        @else
+          <img class="user-profile" src="https://via.placeholder.com/150" id="profileImg" alt="Maxwell Admin">
+        @endif
+
+        <div class="dropdown profile-menu">
           <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             My account
           </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
             <li class="px-3 py-2">{{Auth::user()->name}}</li>
             <li><a class="dropdown-item" href="{{route('profile')}}">Edit Profile</a></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>

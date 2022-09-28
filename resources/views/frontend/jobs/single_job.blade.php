@@ -7,8 +7,9 @@
     <div class="col-md-3">
       <div class="alert">
 
+<h5 class="alert alert-primary">Quick Summery</h5>
         <ul class="list-group">
-          <li class="list-group-item" style="background-color: transparent"><b>Published on: </b> {{$data->created_at}}</li>
+          <li class="list-group-item " style="background-color: transparent"><b>Published on: </b> {{$data->created_at}}</li>
           <li class="list-group-item" style="background-color: transparent"><b>Vacancy: </b> {{$data->job_vacancy}}</li>
           <li class="list-group-item" style="background-color: transparent"><b>Employment Status: </b>{{$data->job_employment_status}}</li>
           <li class="list-group-item" style="background-color: transparent"><b>Experience: </b> {{$data->job_experience}}</li>
@@ -21,8 +22,8 @@
       </div>
     </div>
     <div class="col-md-9">
-      <div class="content_area">
-        <h4 class="searched-show">{{$data->job_title}}</h4>
+      <div class="content_area card p-4 rounded">
+        <h4 class="searched-show text-primary">{{$data->job_title}}</h4>
         <hr>
         <div class="mt-4">
           <h6>Vacancy</h6>

@@ -16,3 +16,14 @@ const toggleButton = document.querySelector(".dark-light");
 toggleButton.addEventListener("click", () => {
 	document.body.classList.toggle("dark-mode");
 });
+
+// Profile photo preview
+$(document).ready(function () {
+	$('#profile_photo').on('change', function (e) {
+		let reader = new FileReader();
+		reader.onload = function (e) {
+			$('#profilePhoto').attr('src', e.target.result);
+		}
+		reader.readAsDataURL(e.target.files[0]);
+	})
+})

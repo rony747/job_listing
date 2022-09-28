@@ -31,6 +31,7 @@ Route::group(['prefix'=>'jobs'],function(){
 });
 Route::group(['prefix'=>'profile'],function(){
   Route::get('/view/', [ProfileController::class, 'view'])->name('profile');
+  Route::post('/store/', [ProfileController::class, 'store'])->name('store.profile');
 //  Route::get('/view/{id}', [JobController::class, 'view'])->name('view.jobs');
 });
 
