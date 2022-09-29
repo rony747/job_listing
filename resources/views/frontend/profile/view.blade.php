@@ -104,7 +104,7 @@
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group mb-3">
                       <label for="profile_photo" class="form-label">Profile Photo</label>
-                      <input class="form-control" type="file" id="profile_photo" name="profile_photo">
+                      <input class="form-control" type="file" id="profile_photo"  name="profile_photo">
                     </div>
                   </div>
                 </div>

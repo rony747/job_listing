@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Jobs;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,10 @@ class JobController extends Controller
 {
   public function index()
   {
-    $data = User::find(Auth::user()->id);
+    if ( Auth ::check() ) {
+      $data = User ::find(Auth ::user() -> id);
+    }
+
     $data[ 'allJobs' ]     = Jobs ::paginate(9);
     $data[ 'jobstatus' ]   = Jobs ::groupBy('job_employment_status') -> pluck('job_employment_status');
     $data[ 'joblocation' ] = Jobs ::groupBy('job_location') -> pluck('job_location');
@@ -28,8 +32,8 @@ class JobController extends Controller
 
   public function filter(Request $request)
   {
-    $jobs      = Jobs ::query();
-    $jobStatus = $request -> job_employment_status;
+    $jobs        = Jobs ::query();
+    $jobStatus   = $request -> job_employment_status;
     $jobLocation = $request -> job_location;
     if ( $jobStatus ) {
       $jobs -> where('job_employment_status', 'LIKE', '%' . $jobStatus . '%');
@@ -43,5 +47,17 @@ class JobController extends Controller
     $data[ 'jobstatus' ]   = Jobs ::groupBy('job_employment_status') -> pluck('job_employment_status');
     $data[ 'joblocation' ] = Jobs ::groupBy('job_location') -> pluck('job_location');
     return view('frontend.jobs.allJobs', $data);
+  }
+
+  public function add()
+  {
+    $data['allTags'] = Tag::all();
+    return view('frontend.jobs.job_add',$data);
+  }
+
+  public function store(Request $request)
+  {
+    $data['tags']= $request->job_tags;
+    dd($data['tags']);
   }
 }

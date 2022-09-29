@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\frontend\JobController;
 use App\Http\Controllers\frontend\ProfileController;
+use App\Models\Jobs;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,20 +22,25 @@ Route::get('/', function () {
     return view('frontend.home');
 });
 
-Route::get('/frontend.home', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [ProfileController::class, 'view'])->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
+// jobs routes
 Route::group(['prefix'=>'jobs'],function(){
   Route::get('/', [JobController::class, 'index'])->name('jobs');
   Route::get('/view/{id}', [JobController::class, 'view'])->name('view.jobs');
+  Route::get('/add', [JobController::class, 'add'])->name('add.jobs');
+  Route::post('/store', [JobController::class, 'store'])->name('store.jobs');
+  Route::get('job-filter',[JobController::class,'filter'])->name('job.filter');
 });
+
+// Profile routes
 Route::group(['prefix'=>'profile'],function(){
   Route::get('/view/', [ProfileController::class, 'view'])->name('profile');
   Route::post('/store/', [ProfileController::class, 'store'])->name('store.profile');
 //  Route::get('/view/{id}', [JobController::class, 'view'])->name('view.jobs');
 });
 
-Route::get('job-filter',[JobController::class,'filter'])->name('job.filter');
+
+

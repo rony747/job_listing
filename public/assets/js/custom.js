@@ -27,3 +27,12 @@ $(document).ready(function () {
 		reader.readAsDataURL(e.target.files[0]);
 	})
 })
+//multi select
+$(document).ready(function() {
+	$('.js-example-basic-multiple').select2({
+		tags: true
+	});
+});
+
+// Text editor
+var editor = new FroalaEditor('textarea');
