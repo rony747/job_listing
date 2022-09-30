@@ -14,7 +14,6 @@ class ProfileController extends Controller
     $userId = Auth ::user() -> id;
     $data = User ::where('id', $userId) -> first();
     return view('frontend.profile.view', compact('data'));
-
   }
 
   public function store(Request $request)

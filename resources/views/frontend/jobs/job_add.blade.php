@@ -33,6 +33,10 @@
                       <select name="job_employment_status" id="job_employment_status" class="form-control">
                         <option value="Part Time">Part Time</option>
                         <option value="Full Time">Full Time</option>
+                        <option value="Remote">Remote</option>
+                        <option value="Internship">Internship</option>
+                        <option value="Contract">Contract</option>
+                        <option value="Training">Training</option>
                       </select>
                     </div>
                   </div>
@@ -55,7 +59,7 @@
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group mb-3">
                       <label for="job_age">Age Limit</label>
-                      <input type="text" class="form-control" id="job_age" name="job_age" value="">
+                      <input type="number" class="form-control" id="job_age" name="job_age" value="">
                     </div>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -122,12 +126,12 @@
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-12">
                     <div class="form-group mb-3">
                       <label for="job_tags">Tags</label>
-                      <select class="form-control selectpicker js-example-basic-multiple" name="job_tags[]" multiple aria-label="Default select example" data-live-search="true">
+                      <select class="form-control selectpicker js-example-basic-multiple" name="job_tags[]" multiple
+                              aria-label="Default select example" data-live-search="true">
                         @foreach($allTags as $data)
                           <option value="{{$data->id}}">{{$data->name}}</option>
                         @endforeach
                       </select>
-
                     </div>
                   </div>
                 </div>

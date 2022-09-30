@@ -8,7 +8,7 @@
 
     <div class="searched-jobs">
       <div class="searched-bar">
-        <div class="searched-show">Showing @php echo count($allJobs) @endphp Jobs</div>
+
         <div class="searched-sort">Sort by: <span class="post-time">Newest Post </span><span
               class="menu-icon">▼</span></div>
       </div>

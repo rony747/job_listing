@@ -13,7 +13,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+      view()->composer('frontend.templates.app', function ($view) {
+        $theme = \Cookie::get('theme');
+        if ($theme != 'dark') {
+          $theme = 'light-mode';
+        }else{
+          $theme = 'dark-mode';
+        }
+
+        $view->with('theme', $theme);
+      });
     }
 
     /**

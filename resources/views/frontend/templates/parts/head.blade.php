@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 </head>
 
-<body>
+<body class="{{$theme}}" >
 <div class="job">
   <div class="header">
     <div class="logo">

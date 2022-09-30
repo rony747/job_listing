@@ -24,7 +24,7 @@
                 @if($data->about)
                 <div class="about">
                   <h5>About</h5>
-                  <p>{{$data->about}}</p>
+                  <p>{!! $data->about !!}</p>
                 </div>
                 @endif
               </div>

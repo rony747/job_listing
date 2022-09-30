@@ -11,11 +11,7 @@ wrapper.addEventListener("scroll", (e) => {
 		: header.classList.remove("header-shadow");
 });
 
-const toggleButton = document.querySelector(".dark-light");
 
-toggleButton.addEventListener("click", () => {
-	document.body.classList.toggle("dark-mode");
-});
 
 // Profile photo preview
 $(document).ready(function () {
@@ -30,9 +26,45 @@ $(document).ready(function () {
 //multi select
 $(document).ready(function() {
 	$('.js-example-basic-multiple').select2({
-		tags: true
+		tags: true,
+		placeholder: "Select tags",
 	});
 });
 
 // Text editor
-var editor = new FroalaEditor('textarea');
+let editor = new FroalaEditor('textarea');
+
+//
+$('#sideJobEmp').on('change', function(){
+	$(this).submit();
+});
+
+
+
+let toggleButton = document.querySelector('.dark-light');
+let body = document.getElementsByTagName('body')[0];
+let dark_theme_class = 'dark-mode';
+
+toggleButton.addEventListener('click', function() {
+	if (body.classList.contains(dark_theme_class)) {
+		body.classList.remove(dark_theme_class);
+		setCookie('theme', 'light');
+	}
+	else {
+		body.classList.add(dark_theme_class);
+		setCookie('theme', 'dark');
+	}
+});
+
+function setCookie(name, value) {
+	let d = new Date();
+	d.setTime(d.getTime() + (365*24*60*60*1000));
+	let expires = "expires=" + d.toUTCString();
+	document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+// const toggleButton = document.querySelector(".dark-light");
+//
+// toggleButton.addEventListener("click", () => {
+// 	document.body.classList.toggle("dark-mode");
+// });
