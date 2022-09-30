@@ -39,6 +39,8 @@ Route::group(['prefix'=>'jobs'],function(){
 Route::group(['prefix'=>'profile'],function(){
   Route::get('/view/', [ProfileController::class, 'view'])->name('profile');
   Route::post('/store/', [ProfileController::class, 'store'])->name('store.profile');
+  Route::get('/change-password/', [ProfileController::class, 'changePass'])->name('change.password');
+  Route::post('/update-password/', [ProfileController::class, 'passUpdate'])->name('update.password');
 //  Route::get('/view/{id}', [JobController::class, 'view'])->name('view.jobs');
 });
 

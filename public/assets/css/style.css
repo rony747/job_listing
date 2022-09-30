@@ -1163,8 +1163,8 @@ body {
     margin-bottom: 1rem;
 }
 
-.dark-mode .card {
-    background-color: var(--alert-bg-color);
+.card {
+    background-color: var(--header-bg-color);
 
 }
 
@@ -1174,12 +1174,17 @@ body {
 
 }
 
-.form-control {
+.search-menu .form-control {
     background: transparent;
     color: var(--body-color);
+    border: 1px solid var(--theme-bg-color);
 }
 
-.form-control:focus {
+.dark-mode .form-control {
+    background: var(--alert-bg-color);
+}
+
+.search-menu .form-control:focus {
 
     background-color: transparent;
     color: var(--body-color);
@@ -1189,7 +1194,7 @@ i {
     color: var(--active-color);
 }
 
-.dark i {
+.dark-mode i {
     color: var(--body-color);
 }
 
@@ -1205,8 +1210,43 @@ select option {
     background-color: var(--header-bg-color);
 
 }
+
 .page-item.disabled .page-link {
     color: var(--body-color);
     background-color: var(--search-border-color);
 
+}
+
+.fr-toolbar, .fr-box.fr-basic .fr-wrapper, .fr-second-toolbar {
+    background-color: var(--header-bg-color);
+    color: var(--body-color);
+
+}
+
+.fr-toolbar .fr-command.fr-btn, .fr-popup .fr-command.fr-btn, .fr-modal .fr-command.fr-btn {
+    color: var(--body-color);
+}
+
+.fr-box.fr-basic .fr-element {
+    color: var(--body-color);
+}
+
+.fr-toolbar .fr-command.fr-btn svg path, .fr-popup .fr-command.fr-btn svg path, .fr-modal .fr-command.fr-btn svg path {
+    fill: var(--body-color);
+}
+.header .btn, .profile-menu input{
+    background-color: var(--header-bg-color);
+    color: var(--body-color);
+}
+.header  .dropdown-menu, .dropdown-item{
+    color: var(--body-color);
+    background-color: var(--header-bg-color);
+}
+
+.header hr {
+    margin: .5rem 0;
+    opacity: 0.15;
+}
+.header .dropdown-item {
+    padding: .5rem 1rem;
 }

@@ -85,7 +85,9 @@
           </button>
           <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
             <li class="px-3 py-2">{{Auth::user()->name}}</li>
+            <hr>
             <li><a class="dropdown-item" href="{{route('profile')}}">Edit Profile</a></li>
+            <li><a class="dropdown-item" href="{{route('change.password')}}">Change Password</a></li>
             <li><form class="dropdown-item" action="{{route('logout')}}" method="post">@csrf
                 <input type="submit" value="Logout" class="form-control" />
                 </form></li>
