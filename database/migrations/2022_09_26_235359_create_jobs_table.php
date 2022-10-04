@@ -14,7 +14,7 @@ return new class extends Migration {
   {
     Schema ::create('jobs', function (Blueprint $table) {
       $table -> id();
-      $table -> unsignedBigInteger('user_id');
+      $table -> unsignedBigInteger('user_id')->nullable();
       $table -> string('job_title');
       $table -> string('job_slug');
       $table -> string('job_vacancy') -> nullable();

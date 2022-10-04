@@ -21,7 +21,7 @@ class JobsFactory extends Factory
       $datetime = $this->faker->dateTimeBetween('-1 month','now');
         return [
            'job_title'=>$job_title,
-           'user_id'=>rand(1,50),
+
            'job_slug'=>Str::slug($job_title).'-'.rand(1111,9999),
            'job_vacancy'=>rand(1,30),
            'job_employment_status'=>fake()->randomElement(['Part Time', 'Full Time','Remote', 'Internship','Contract', 'Training']),
